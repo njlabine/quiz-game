@@ -10,11 +10,8 @@ let availableQuestions = [];
 let questions = [
   {
     question: "What is Your Favorite Language?",
-    choice1: "JavaScript",
-    choice2: "CSS",
-    choice3: "HTML",
-    choice4: "All of the Above",
-    answer: 4,
+    choices: ["JavaScript", "CSS", "HTML", "All of the Above"],
+    answer: 3,
   },
 ];
 
@@ -34,4 +31,10 @@ getNewQuestion = () => {
 
     return window, location.assign("/end.hmtl");
   }
+
+  questionCounter++;
+  progressText.innerText = "Question ${questionCounter} of ${MAX_QUESTIONS}";
+
+  const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionsIndex];
 };
