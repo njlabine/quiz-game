@@ -1,6 +1,9 @@
 const question = document.querySelector("#question");
 const choices = Array.from(document.querySelectorAll(".choice-text"));
 const scoreText = document.querySelector("#score");
+const timer = document.querySelector(".timer");
+const SCORE_POINTS = 100;
+const MAX_QUESTIONS = 4;
 
 let curentQuestion = {};
 let acceptingAnswers = true;
@@ -14,11 +17,45 @@ let questions = [
     answer: 3,
   },
 ];
+// add to function
+questionOne = (choice) => {
+  debugger;
+  const isCorrect = choice === 4;
+  debugger;
+  if (isCorrect) {
+    scoreText.innerHTML = SCORE_POINTS;
+    debugger;
+  } else {
+    // if incorrect, subtract time
+  }
+  //   hide question and show next question
+};
 
-const SCORE_POINTS = 100;
-const MAX_QUESTIONS = 4;
+startTimer = () => {
+  debugger;
+  var timeLeft = 30;
+  debugger;
+
+  var timerId = setInterval(countdown, 1000);
+  debugger;
+  function countdown() {
+    if (timeLeft == -1) {
+      clearTimeout(timerId);
+      doSomething();
+    } else {
+      timer.innerHTML = timeLeft + " seconds remaining";
+      timeLeft--;
+    }
+  }
+
+  function doSomething() {
+    alert("Hi");
+  }
+};
 
 startGame = () => {
+  startTimer();
+
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions];
